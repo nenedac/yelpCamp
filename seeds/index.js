@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
-const cities = require('./cities')
-const {places, descriptors} = require('./seedHelpers')
+const cities = require('./cities');
+const { places, descriptors } = require('./seedHelpers');
 const Campground = require('../models/campground');
 ///////////////////////////////////////////////
-mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp')
+mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp');
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
@@ -23,10 +23,10 @@ const seedDB = async () => {
             image: `https://picsum.photos/400?random=${Math.random()}`,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam dolores vero perferendis laudantium, consequuntur voluptatibus nulla architecto, sit soluta esse iure sed labore ipsam a cum nihil atque molestiae deserunt!',
             price
-        })
+        });
         await camp.save();
     }
-}
+};
 seedDB().then(() => {
     mongoose.connection.close();
-})
+});

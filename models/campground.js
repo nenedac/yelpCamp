@@ -22,8 +22,8 @@ CampgroundSchema.post('findOneAndDelete', async function (doc) {
             _id: {
                 $in: doc.reviews
             }
-        })
+        });
     }
-})
+});
 
 module.exports = mongoose.model('Campground', CampgroundSchema);
